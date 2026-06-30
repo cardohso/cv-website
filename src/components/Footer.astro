@@ -1,0 +1,57 @@
+---
+import { getContent } from '../i18n';
+
+const t = getContent();
+const { footer, profile } = t;
+
+// Static-site builds run once, so a fixed build-time year is fine and avoids
+// a hydration/runtime dependency.
+const year = new Date().getFullYear();
+const copyright = footer.copyright.replace('{year}', String(year));
+
+const hasLinkedin = Boolean(profile.linkedin);
+const hasEmail = profile.email && !profile.email.startsWith('TODO');
+---
+
+<footer class="border-t border-border">
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-10 sm:flex-row"
+  >
+    <p class="text-sm text-muted">{copyright}</p>
+
+    <div class="flex items-center gap-5">
+      {
+        hasEmail && (
+          <a
+            href={`mailto:${profile.email}`}
+            class="text-sm text-muted transition-colors hover:text-accent"
+          >
+            Email
+          </a>
+        )
+      }
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-muted transition-colors hover:text-accent"
+      >
+        GitHub
+      </a>
+      {
+        hasLinkedin && (
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-muted transition-colors hover:text-accent"
+          >
+            LinkedIn
+          </a>
+        )
+      }
+    </div>
+
+    <p class="text-xs text-muted">{footer.builtWith}</p>
+  </div>
+</footer>

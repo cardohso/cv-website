@@ -1,0 +1,39 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { getContent } from '../i18n';
+const t = getContent();
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-border/70 bg-bg/80 backdrop-blur-md"
+>
+  <nav
+    class="mx-auto flex h-16 max-w-5xl items-center justify-between px-6"
+    aria-label="Primary"
+  >
+    <a
+      href="/#top"
+      class="font-mono text-sm font-medium tracking-tight text-fg transition-colors hover:text-accent"
+    >
+      {t.nav.brand}
+    </a>
+
+    <div class="flex items-center gap-1 sm:gap-2">
+      <ul class="hidden items-center gap-1 sm:flex">
+        {
+          t.nav.links.map((link) => (
+            <li>
+              <a
+                href={`/${link.href}`}
+                class="rounded-md px-3 py-2 text-sm text-muted transition-colors hover:text-fg"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ThemeToggle />
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,57 @@
+---
+import Section from './Section.astro';
+import { getContent } from '../i18n';
+
+const t = getContent();
+const { contact, profile } = t;
+
+const hasEmail = profile.email && !profile.email.startsWith('TODO');
+const hasLinkedin = Boolean(profile.linkedin);
+
+const links = [
+  {
+    label: contact.emailLabel,
+    value: hasEmail ? profile.email : 'TODO — add your email',
+    href: hasEmail ? `mailto:${profile.email}` : undefined,
+    external: false,
+  },
+  {
+    label: contact.githubLabel,
+    value: profile.githubHandle,
+    href: profile.github,
+    external: true,
+  },
+  {
+    label: contact.linkedinLabel,
+    value: hasLinkedin ? profile.linkedin : 'TODO — add your LinkedIn',
+    href: hasLinkedin ? profile.linkedin : undefined,
+    external: true,
+  },
+];
+---
+
+<Section id="contact" heading={contact.heading} intro={contact.intro}>
+  <ul class="reveal flex flex-col divide-y divide-border border-y border-border">
+    {
+      links.map((link) => (
+        <li class="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <span class="font-mono text-sm uppercase tracking-wider text-muted">
+            {link.label}
+          </span>
+          {link.href ? (
+            <a
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              class="text-base font-medium text-fg transition-colors hover:text-accent"
+            >
+              {link.value}
+            </a>
+          ) : (
+            <span class="text-base font-medium text-muted">{link.value}</span>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</Section>

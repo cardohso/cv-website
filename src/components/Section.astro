@@ -1,0 +1,38 @@
+---
+interface Props {
+  id: string;
+  heading?: string;
+  intro?: string;
+  /** Render heading visually hidden but available to screen readers. */
+  headingHidden?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  heading,
+  intro,
+  headingHidden = false,
+  class: className = '',
+} = Astro.props;
+---
+
+<section id={id} class={`mx-auto max-w-5xl px-6 py-20 sm:py-28 ${className}`}>
+  {
+    heading && (
+      <div class="reveal mb-12 max-w-2xl">
+        <h2
+          class={
+            headingHidden
+              ? 'sr-only'
+              : 'text-2xl font-semibold tracking-tight text-fg sm:text-3xl'
+          }
+        >
+          {heading}
+        </h2>
+        {intro && <p class="mt-3 text-base text-muted">{intro}</p>}
+      </div>
+    )
+  }
+  <slot />
+</section>

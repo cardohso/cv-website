@@ -1,0 +1,25 @@
+---
+import Section from './Section.astro';
+import ProjectCard from './ProjectCard.astro';
+import { getContent } from '../i18n';
+
+const t = getContent();
+const { projects } = t;
+---
+
+<Section id="projects" heading={projects.heading} intro={projects.intro}>
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    {
+      projects.items.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          tags={project.tags}
+          href={project.href}
+          featured={project.featured}
+          external={project.external}
+        />
+      ))
+    }
+  </div>
+</Section>

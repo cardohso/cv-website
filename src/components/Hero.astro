@@ -1,0 +1,47 @@
+---
+import { getContent } from '../i18n';
+const t = getContent();
+const { hero, profile } = t;
+
+const hasEmail = profile.email && !profile.email.startsWith('TODO');
+const mailto = hasEmail ? `mailto:${profile.email}` : undefined;
+---
+
+<section id="top" class="mx-auto max-w-5xl px-6 pb-12 pt-20 sm:pt-28">
+  <div class="reveal max-w-3xl">
+    <p class="font-mono text-sm font-medium text-accent">{hero.eyebrow}</p>
+
+    <h1
+      class="mt-4 text-4xl font-bold tracking-tight text-fg sm:text-6xl"
+    >
+      {hero.name}
+    </h1>
+
+    <p class="mt-4 text-xl font-medium text-fg sm:text-2xl">
+      {hero.tagline}
+    </p>
+
+    <p class="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      {hero.intro}
+    </p>
+
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a
+        href={mailto}
+        aria-disabled={hasEmail ? undefined : 'true'}
+        class="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-fg transition-colors hover:bg-accent-hover"
+      >
+        {hero.ctaEmailLabel}
+        <span aria-hidden="true">→</span>
+      </a>
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-fg transition-colors hover:border-accent hover:text-accent"
+      >
+        {hero.ctaGitHubLabel}
+      </a>
+    </div>
+  </div>
+</section>

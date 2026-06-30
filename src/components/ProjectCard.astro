@@ -1,0 +1,93 @@
+---
+import { getContent } from '../i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  tags: readonly string[];
+  href: string;
+  featured?: boolean;
+  external?: boolean;
+}
+
+const {
+  title,
+  description,
+  tags,
+  href,
+  featured = false,
+  external = false,
+} = Astro.props;
+
+const t = getContent();
+const hasLink = Boolean(href);
+
+// Featured card spans the full grid width on larger screens.
+const wrapperClass = [
+  'reveal group relative flex flex-col rounded-xl border border-border bg-bg-soft p-6 transition-colors',
+  hasLink ? 'hover:border-accent' : '',
+  featured ? 'sm:col-span-2 sm:p-8' : '',
+].join(' ');
+
+const linkAttrs = external
+  ? { target: '_blank', rel: 'noopener noreferrer' }
+  : {};
+---
+
+<article class={wrapperClass}>
+  {
+    featured && (
+      <p class="mb-3 font-mono text-xs font-medium uppercase tracking-wider text-accent">
+        {t.projects.featuredBadge}
+      </p>
+    )
+  }
+
+  <h3
+    class={`font-semibold tracking-tight text-fg ${featured ? 'text-xl sm:text-2xl' : 'text-lg'}`}
+  >
+    {
+      hasLink ? (
+        <a href={href} {...linkAttrs} class="after:absolute after:inset-0">
+          <span class="bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]">
+            {title}
+          </span>
+        </a>
+      ) : (
+        title
+      )
+    }
+  </h3>
+
+  <p
+    class={`mt-3 leading-relaxed text-muted ${featured ? 'text-base' : 'text-sm'}`}
+  >
+    {description}
+  </p>
+
+  {
+    tags.length > 0 && (
+      <ul class="mt-5 flex flex-wrap gap-2" aria-label="Technologies">
+        {tags.map((tag) => (
+          <li class="rounded-full border border-border px-2.5 py-1 font-mono text-xs text-muted">
+            {tag}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    hasLink && !external && (
+      <p class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent">
+        {t.projects.viewCaseStudy}
+        <span
+          aria-hidden="true"
+          class="transition-transform group-hover:translate-x-0.5"
+        >
+          →
+        </span>
+      </p>
+    )
+  }
+</article>

@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { getContent } from '../i18n';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const t = getContent();
+const { title = t.meta.title, description = t.meta.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang={t.meta.lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--
+      Set the theme BEFORE first paint to avoid a flash of the wrong theme.
+      Dark is the default; an explicit stored choice of "light" overrides it.
+      `is:inline` keeps this from being bundled/deferred.
+    -->
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const theme = stored === 'light' ? 'light' : 'dark';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-bg text-fg antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-fg focus:shadow-lg"
+    >
+      {t.nav.skipToContent}
+    </a>
+
+    <Nav />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Scroll reveal: progressive enhancement, respects reduced-motion. -->
+    <script is:inline>
+      (() => {
+        const els = document.querySelectorAll('.reveal');
+        if (!els.length) return;
+
+        const reduce = window.matchMedia(
+          '(prefers-reduced-motion: reduce)',
+        ).matches;
+
+        if (reduce || !('IntersectionObserver' in window)) {
+          els.forEach((el) => el.classList.add('is-visible'));
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.05 },
+        );
+
+        els.forEach((el) => io.observe(el));
+      })();
+    </script>
+  </body>
+</html>
