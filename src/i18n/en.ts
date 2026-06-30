@@ -130,14 +130,13 @@ export const en = {
   profile: {
     name: 'João Cardoso',
 
-    // TODO: your contact email (used for the hero CTA and contact section).
-    email: 'TODO@example.com',
+    // Contact email (used for the hero CTA and contact section).
+    email: 'joaocavacocardoso@gmail.com',
 
     github: 'https://github.com/cardohso',
     githubHandle: 'github.com/cardohso',
 
-    // TODO: your LinkedIn profile URL.
-    linkedin: '', // e.g. 'https://www.linkedin.com/in/your-handle'
+    linkedin: 'https://www.linkedin.com/in/cardohso',
 
     // Profile photo: drop a real image in /public and update this path.
     // A placeholder SVG ships in /public/profile-placeholder.svg.
