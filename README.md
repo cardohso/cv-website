@@ -1,4 +1,4 @@
-# João Cardoso — Portfolio
+# João Pedro Cardoso — Portfolio
 
 A clean, fast, accessible personal portfolio. Dark-mode-first with a light toggle,
 strong typography, a single restrained accent, and subtle scroll transitions.
