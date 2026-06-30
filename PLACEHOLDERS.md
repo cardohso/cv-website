@@ -7,10 +7,10 @@ Everything you still need to provide, grouped by file. Search the codebase for
 
 | Field      | Current value           | Replace with                         |
 | ---------- | ----------------------- | ------------------------------------ |
-| `email`    | `TODO@example.com`      | your real email                      |
-| `linkedin` | `''` (empty)            | your LinkedIn URL                    |
+| `email`    | `joaocavacocardoso@gmail.com`      | your real email                      |
+| `linkedin` | `www.linkedin.com/in/cardohso` (empty)            | your LinkedIn URL                    |
 | `github`   | `github.com/cardohso`   | ✅ already set — change if needed     |
-| `photo`    | `/profile-placeholder.svg` | path to your real photo in `public/` |
+| `photo`    | `/profile-placeholder.jpeg` | path to your real photo in `public/` |
 
 > When `email`/`linkedin` are left as the placeholder/empty, the CTA, contact
 > row, and footer degrade gracefully (the link shows a "TODO/coming" state

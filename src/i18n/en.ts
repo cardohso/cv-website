@@ -138,9 +138,8 @@ export const en = {
 
     linkedin: 'https://www.linkedin.com/in/cardohso',
 
-    // Profile photo: drop a real image in /public and update this path.
-    // A placeholder SVG ships in /public/profile-placeholder.svg.
-    photo: '/profile-placeholder.svg',
+    // Profile photo (served from /public).
+    photo: '/profile-placeholder.jpeg',
   },
 } as const;
 
