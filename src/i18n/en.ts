@@ -23,7 +23,7 @@ export const en = {
     toggleTheme: 'Toggle color theme',
     links: [
       { href: '#projects', label: 'Projects' },
-      { href: '#writing', label: 'Writing' },
+      { href: '#writing', label: 'Research' },
       { href: '#about', label: 'About' },
       { href: '#contact', label: 'Contact' },
     ],
@@ -85,7 +85,7 @@ export const en = {
   },
 
   writing: {
-    heading: 'Selected writing',
+    heading: 'Research',
     intro: 'Research and notes on evaluating generative-AI systems.',
     items: [
       {
