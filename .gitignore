@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # vercel
 .vercel
+
+# private pre-publish review notes — keep OUT of the repo (may be public)
+REVIEW-BEFORE-PUBLISH.md

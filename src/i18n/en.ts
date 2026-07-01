@@ -12,13 +12,13 @@
 export const en = {
   meta: {
     lang: 'en',
-    title: 'João Cardoso — AI Engineering',
+    title: 'João Pedro Cardoso — AI Engineering',
     description:
       'AI engineering — LLM evaluation, RAG, and agent systems. Final-year Computer Engineering student at ISEC, Coimbra.',
   },
 
   nav: {
-    brand: 'João Cardoso',
+    brand: 'João Pedro Cardoso',
     skipToContent: 'Skip to content',
     toggleTheme: 'Toggle color theme',
     links: [
@@ -31,10 +31,10 @@ export const en = {
 
   hero: {
     eyebrow: 'AI Engineering Intern',
-    name: 'João Cardoso',
-    tagline: 'AI engineering — LLM evaluation, RAG, agent systems',
+    name: 'João Pedro Cardoso',
+    tagline: 'AI engineering — LLM evaluation, RAG, reliability',
     intro:
-      'I build and measure the reliability of LLM-powered systems. Currently an AI engineering intern working on LLM evaluation pipelines, retrieval-augmented generation, and agent orchestration. Final-year Computer Engineering student at ISEC in Coimbra, Portugal.',
+      'A final-year Computer Engineering student working on LLM evaluation and RAG systems. I build the testing and observability layer that tells you whether a generative AI system’s answers are actually reliable, not just plausible — LLM-as-a-Judge pipelines, retrieval metrics, and CI/CD tooling that catch regressions before they reach production.',
     ctaEmailLabel: 'Email me',
     ctaGitHubLabel: 'GitHub',
   },
@@ -50,8 +50,12 @@ export const en = {
         featured: true,
         title: 'LLM-as-a-Judge Evaluation Pipeline',
         description:
-          'A testing-and-observability system that measures the reliability of a RAG assistant using decomposed LLM-as-a-Judge evaluators (Relevance, Helpfulness, Correctness, Hallucination) plus retrieval-stage metrics — wired into CI for automated regression detection.',
-        tags: ['LLM-as-a-Judge', 'Evaluation', 'Langfuse', 'CI/CD', 'RAG'],
+          'Built a decomposed evaluation suite for a production RAG assistant: instead of one blended quality score, an LLM judge scores every answer on relevance, helpfulness, correctness, and hallucination, each grounded against the source document. Added retrieval-stage metrics (context precision, recall, relevance) so a bad answer can be traced to retrieval or generation, then wired the whole suite into CI with an LLM-driven layer that flags meaningful score drops between runs, not just raw diffs.',
+        // NOTE: these tags name tools used on your internship's system (Langfuse,
+        // GitHub Actions). The case study prose deliberately keeps them generic and
+        // flags "confirm before naming". Confirm it's OK to name your stack publicly,
+        // or genericize these before pushing (site auto-deploys to a public URL).
+        tags: ['LLM-as-a-Judge', 'Langfuse', 'GitHub Actions', 'Python', 'RAG evaluation'],
         // Internal link to the content-collection case study.
         href: '/case-studies/llm-as-a-judge-evaluation-pipeline',
         external: false,
@@ -59,21 +63,22 @@ export const en = {
       {
         featured: false,
         title: 'RAG Retrieval System',
-        // TODO: replace with a real description of your RAG work.
         description:
-          'TODO: short description of the retrieval-augmented generation system — data sources, chunking/embedding strategy, retrieval evaluation, and what problem it solves.',
-        tags: ['RAG', 'Embeddings', 'Retrieval'],
-        href: '', // TODO: link to a repo, demo, or future case study (leave '' to render a non-link card)
+          'Built and maintained the retrieval layer of a production RAG system: reconciliation tooling to keep a search index consistent with its source documents, a scheduled cleanup job that removes drift automatically, and a set of evaluators (context precision, recall, and relevance) that continuously measure retrieval quality instead of assuming it. The goal was to stop treating retrieval as a black box the model either gets lucky with or doesn’t.',
+        // [VERIFY] Describes the infra-and-evaluation side of RAG, not the core
+        // retrieval/ranking algorithm. Rewrite if you did more on the core logic.
+        // NOTE: these tags name your employer's production stack — confirm before publishing.
+        tags: ['Azure AI Search', 'Neo4j', 'LlamaParse', 'Python', 'Kubernetes'],
+        href: '', // add a repo/demo link, or leave '' for a non-link card
         external: true,
       },
       {
         featured: false,
-        title: 'Agent Orchestration',
-        // TODO: replace with a real description of your agent work.
+        title: 'LLM-Judge Bias & Reliability Research',
         description:
-          'TODO: short description of the agent-orchestration work — tools, planning/routing, guardrails, and the outcome.',
-        tags: ['Agents', 'Orchestration', 'Tooling'],
-        href: '', // TODO
+          'Investigated whether the LLM judges scoring the pipeline’s own outputs were biased toward answers from their own model family: reviewed the self-preference bias literature and designed a cross-model benchmarking protocol to test it. Extended that into a reliability study — repeated executions to quantify run-to-run variance in judge scores, and cross-judge comparisons to test whether conclusions hold up under a different evaluator.',
+        tags: ['LLM-as-a-Judge', 'Bias evaluation', 'Statistics', 'Claude', 'GPT-4.1'],
+        href: '', // add a link if/when there's something public to point to
         external: true,
       },
     ],
@@ -84,15 +89,18 @@ export const en = {
     intro: 'Research and notes on evaluating generative-AI systems.',
     items: [
       {
+        // [VERIFY] Title corrected to the CAPSI paper's (the earlier title was your
+        // internship report's). [VERIFY] Confirm author order (likely co-authored
+        // with your academic — possibly company — supervisor).
         title:
-          'Validation and Testing of Generative AI Systems for Due Diligence',
-        venue: 'CAPSI 2026 — research in progress',
+          'Testing and Observability for Non-Deterministic Generative-AI Pipelines: A Due-Diligence Case Study',
+        venue: 'CAPSI 2026 — research-in-progress track',
         description:
-          'A testing & observability methodology using decomposed LLM-as-a-Judge evaluators to validate generative-AI systems applied to due diligence.',
-        // TODO: add the public link once the paper is available.
-        href: '', // TODO: CAPSI paper URL
+          'Proposes a testing and observability methodology for production generative-AI pipelines, built around four decomposed, source-grounded LLM-as-a-Judge evaluators (relevance, helpfulness, correctness, hallucination) plus retrieval-stage metrics, wired into CI.',
+        // No public PDF yet — keep href empty so it renders as "in review", not a broken link.
+        href: '',
         external: true,
-        status: 'Research in progress',
+        status: 'In review',
       },
     ],
   },
@@ -100,12 +108,14 @@ export const en = {
   about: {
     heading: 'About',
     // Each string is a paragraph.
+    // [NEEDS EMPLOYER SIGN-OFF] Employer is referred to only as "a company".
+    // Confirm whether you can name it directly before changing this.
     paragraphs: [
-      'I’m a final-year Computer Engineering student at ISEC (Instituto Superior de Engenharia de Coimbra), currently doing an internship focused on AI engineering.',
-      'My day-to-day is LLM evaluation pipelines, retrieval-augmented generation, and agent orchestration — with a particular interest in how you measure and trust the output of these systems rather than just shipping them.',
-      'European Portuguese is my first language; I work comfortably in English. Outside of that, I care about clean, fast, accessible software and tools that make systems observable.',
+      'I’m a final-year Computer Engineering student at ISEC (Instituto Superior de Engenharia de Coimbra), in Coimbra, Portugal.',
+      'I’m currently doing an AI-engineering internship at a company building generative AI tools for financial due diligence. My work sits on the layer that makes a production RAG and multi-agent system trustworthy: LLM-as-a-Judge evaluation, retrieval-quality metrics, and CI/CD pipelines that catch regressions before they reach users.',
+      'What interests me technically is the gap between an LLM giving an answer and that answer being correct. Non-deterministic systems break most of the testing habits engineers grow up with, so a lot of my work has been rebuilding those habits from scratch: designing evaluators that don’t just agree with each other by default, checking whether a judge model is quietly biased toward its own outputs, and treating statistical rigor (repeated runs, variance, inter-judge agreement) as part of shipping AI, not an afterthought.',
     ],
-    photoAlt: 'Portrait of João Cardoso', // used as the alt text for the profile photo
+    photoAlt: 'Portrait of João Pedro Cardoso', // used as the alt text for the profile photo
   },
 
   contact: {
@@ -119,7 +129,7 @@ export const en = {
 
   footer: {
     // {year} is replaced at build time.
-    copyright: '© {year} João Cardoso',
+    copyright: '© {year} João Pedro Cardoso',
     builtWith: 'Built with Astro & Tailwind CSS',
   },
 
@@ -128,7 +138,7 @@ export const en = {
    * These are shared across components — fill in the TODOs here once.
    */
   profile: {
-    name: 'João Cardoso',
+    name: 'João Pedro Cardoso',
 
     // Contact email (used for the hero CTA and contact section).
     email: 'joaocavacocardoso@gmail.com',
