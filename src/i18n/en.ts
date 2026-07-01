@@ -108,11 +108,9 @@ export const en = {
   about: {
     heading: 'About',
     // Each string is a paragraph.
-    // [NEEDS EMPLOYER SIGN-OFF] Employer is referred to only as "a company".
-    // Confirm whether you can name it directly before changing this.
     paragraphs: [
       'I’m a final-year Computer Engineering student at ISEC (Instituto Superior de Engenharia de Coimbra), in Coimbra, Portugal.',
-      'I’m currently doing an AI-engineering internship at a company building generative AI tools for financial due diligence. My work sits on the layer that makes a production RAG and multi-agent system trustworthy: LLM-as-a-Judge evaluation, retrieval-quality metrics, and CI/CD pipelines that catch regressions before they reach users.',
+      'I’m currently doing an AI-engineering internship at Salus Optima, building generative AI tools for financial due diligence. My work sits on the layer that makes a production RAG and multi-agent system trustworthy: LLM-as-a-Judge evaluation, retrieval-quality metrics, and CI/CD pipelines that catch regressions before they reach users.',
       'What interests me technically is the gap between an LLM giving an answer and that answer being correct. Non-deterministic systems break most of the testing habits engineers grow up with, so a lot of my work has been rebuilding those habits from scratch: designing evaluators that don’t just agree with each other by default, checking whether a judge model is quietly biased toward its own outputs, and treating statistical rigor (repeated runs, variance, inter-judge agreement) as part of shipping AI, not an afterthought.',
     ],
     photoAlt: 'Portrait of João Pedro Cardoso', // used as the alt text for the profile photo
@@ -121,7 +119,7 @@ export const en = {
   contact: {
     heading: 'Get in touch',
     intro:
-      'Open to conversations about AI engineering, evaluation, and internships or graduate roles.',
+      'Open to conversations about AI engineering, evaluation, and graduate roles.',
     emailLabel: 'Email',
     githubLabel: 'GitHub',
     linkedinLabel: 'LinkedIn',
