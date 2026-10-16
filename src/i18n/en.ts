@@ -14,7 +14,7 @@ export const en = {
     lang: 'en',
     title: 'João Pedro Cardoso — AI Engineering',
     description:
-      'AI engineering — LLM evaluation, RAG, and agent systems. Final-year Computer Engineering student at ISEC, Coimbra.',
+      'AI engineer — RAG systems, LLM evaluation and agents. Computer Engineering graduate (ISEC, 2026), now doing an MSc at ISEC, Coimbra.',
   },
 
   nav: {
@@ -30,11 +30,11 @@ export const en = {
   },
 
   hero: {
-    eyebrow: 'AI Engineering Intern',
+    eyebrow: 'Generative AI Engineer',
     name: 'João Pedro Cardoso',
-    tagline: 'AI engineering — LLM evaluation, RAG, reliability',
+    tagline: 'AI engineering — RAG, LLM evaluation, reliability',
     intro:
-      'A final-year Computer Engineering student working on LLM evaluation and RAG systems. I build the testing and observability layer that tells you whether a generative AI system’s answers are actually reliable, not just plausible — LLM-as-a-Judge pipelines, retrieval metrics, and CI/CD tooling that catch regressions before they reach production.',
+      'A Computer Engineering graduate (ISEC, 2026) building and evaluating RAG systems. I care about whether a generative AI system’s answers are actually reliable, not just plausible: I build the retrieval and generation pipeline, and the testing and observability layer around it — LLM-as-a-Judge evaluation, retrieval metrics, and CI/CD gates that catch regressions before they reach production.',
     ctaEmailLabel: 'Email me',
     ctaGitHubLabel: 'GitHub',
   },
@@ -48,6 +48,15 @@ export const en = {
       {
         // ---- ANCHOR PROJECT: most prominent card, links to the case study ----
         featured: true,
+        title: 'EU Rail Regulation Assistant',
+        description:
+          'A deployed RAG assistant over EU railway interoperability law: the Interoperability Directive and six TSIs. Every answer cites the exact passage it comes from, and the assistant refuses when its sources do not cover the question. An evaluation harness on GitHub Actions fails the build when faithfulness, grounding or refusal behaviour drops below fixed thresholds. Built end to end on free tiers: LangGraph, FastAPI, Azure AI Search hybrid retrieval, and Azure Container Apps.',
+        tags: ['RAG', 'LangGraph', 'Azure AI Search', 'FastAPI', 'RAGAS', 'GitHub Actions', 'Docker'],
+        href: '/case-studies/eu-rail-regulation-assistant',
+        external: false,
+      },
+      {
+        featured: false,
         title: 'LLM-as-a-Judge Evaluation Pipeline',
         description:
           'Built a decomposed evaluation suite for a production RAG assistant: instead of one blended quality score, an LLM judge scores every answer on relevance, helpfulness, correctness, and hallucination, each grounded against the source document. Added retrieval-stage metrics (context precision, recall, relevance) so a bad answer can be traced to retrieval or generation, then wired the whole suite into CI with an LLM-driven layer that flags meaningful score drops between runs, not just raw diffs.',
@@ -94,13 +103,13 @@ export const en = {
         // with your academic — possibly company — supervisor).
         title:
           'Testing and Observability for Non-Deterministic Generative-AI Pipelines: A Due-Diligence Case Study',
-        venue: 'CAPSI 2026 — research-in-progress track',
+        venue: 'CAPSI 2026 — 26th Conference of the Portuguese Association of Information Systems',
         description:
           'Proposes a testing and observability methodology for production generative-AI pipelines, built around four decomposed, source-grounded LLM-as-a-Judge evaluators (relevance, helpfulness, correctness, hallucination) plus retrieval-stage metrics, wired into CI.',
         // No public PDF yet — keep href empty so it renders as "in review", not a broken link.
         href: '',
         external: true,
-        status: 'In review',
+        status: 'Accepted',
       },
     ],
   },
@@ -109,8 +118,8 @@ export const en = {
     heading: 'About',
     // Each string is a paragraph.
     paragraphs: [
-      'I’m a final-year Computer Engineering student at ISEC (Instituto Superior de Engenharia de Coimbra), in Coimbra, Portugal.',
-      'I’m currently doing an AI-engineering internship at Salus Optima, building generative AI tools for financial due diligence. My work sits on the layer that makes a production RAG and multi-agent system trustworthy: LLM-as-a-Judge evaluation, retrieval-quality metrics, and CI/CD pipelines that catch regressions before they reach users.',
+      'I’m a Computer Engineering graduate from ISEC (Instituto Superior de Engenharia de Coimbra) and I’m now doing my MSc there, while based in Faro, Portugal.',
+      'I did an AI-engineering internship at Salus Optima (February–July 2026), on a generative AI platform for financial due diligence, then worked as a Generative AI Engineer at Frimarc (August–September 2026), building RAG pipelines and LLM applications for the food distribution sector. My work sits on the layer that makes a production RAG system trustworthy: LLM-as-a-Judge evaluation, retrieval-quality metrics, and CI/CD pipelines that catch regressions before they reach users.',
       'What interests me technically is the gap between an LLM giving an answer and that answer being correct. Non-deterministic systems break most of the testing habits engineers grow up with, so a lot of my work has been rebuilding those habits from scratch: designing evaluators that don’t just agree with each other by default, checking whether a judge model is quietly biased toward its own outputs, and treating statistical rigor (repeated runs, variance, inter-judge agreement) as part of shipping AI, not an afterthought.',
     ],
     photoAlt: 'Portrait of João Pedro Cardoso', // used as the alt text for the profile photo
@@ -119,7 +128,7 @@ export const en = {
   contact: {
     heading: 'Get in touch',
     intro:
-      'Open to conversations about AI engineering, evaluation, and graduate roles.',
+      'Open to AI engineering roles and conversations about RAG, evaluation and reliability.',
     emailLabel: 'Email',
     githubLabel: 'GitHub',
     linkedinLabel: 'LinkedIn',
