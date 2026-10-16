@@ -156,7 +156,7 @@ export const en = {
     linkedin: 'https://www.linkedin.com/in/cardohso',
 
     // Profile photo (served from /public).
-    photo: '/profile-placeholder.jpeg',
+    photo: '/profile.jpg',
   },
 } as const;
 
