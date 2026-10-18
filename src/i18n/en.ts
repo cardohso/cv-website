@@ -118,7 +118,7 @@ export const en = {
     heading: 'About',
     // Each string is a paragraph.
     paragraphs: [
-      'I’m a Computer Engineering graduate from ISEC (Instituto Superior de Engenharia de Coimbra) and I’m now doing my MSc there, while based in Faro, Portugal.',
+      'I’m a Computer Engineering graduate from ISEC (Instituto Superior de Engenharia de Coimbra) and I’m now doing my MSc there. I’m based in Coimbra, Portugal.',
       'I did an AI-engineering internship at Salus Optima (February–July 2026), on a generative AI platform for financial due diligence, then worked as a Generative AI Engineer at Frimarc (August–September 2026), building RAG pipelines and LLM applications for the food distribution sector. My work sits on the layer that makes a production RAG system trustworthy: LLM-as-a-Judge evaluation, retrieval-quality metrics, and CI/CD pipelines that catch regressions before they reach users.',
       'What interests me technically is the gap between an LLM giving an answer and that answer being correct. Non-deterministic systems break most of the testing habits engineers grow up with, so a lot of my work has been rebuilding those habits from scratch: designing evaluators that don’t just agree with each other by default, checking whether a judge model is quietly biased toward its own outputs, and treating statistical rigor (repeated runs, variance, inter-judge agreement) as part of shipping AI, not an afterthought.',
     ],
