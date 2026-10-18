@@ -25,8 +25,6 @@ Replace `public/profile-placeholder.svg` with a real image (e.g.
 
 - **LLM-as-a-Judge Evaluation Pipeline** — anchor card, already written, links to
   the case study. Review the copy.
-- **RAG Retrieval System** — `description` is a `TODO`; add a `href` (repo/demo) or
-  leave `''` for a non-clickable card.
 - **Agent Orchestration** — `description` is a `TODO`; add a `href` or leave `''`.
 
 ## 4. Writing — `src/i18n/en.ts` → `writing.items`

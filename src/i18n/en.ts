@@ -71,18 +71,6 @@ export const en = {
       },
       {
         featured: false,
-        title: 'RAG Retrieval System',
-        description:
-          'Built and maintained the retrieval layer of a production RAG system: reconciliation tooling to keep a search index consistent with its source documents, a scheduled cleanup job that removes drift automatically, and a set of evaluators (context precision, recall, and relevance) that continuously measure retrieval quality instead of assuming it. The goal was to stop treating retrieval as a black box the model either gets lucky with or doesn’t.',
-        // [VERIFY] Describes the infra-and-evaluation side of RAG, not the core
-        // retrieval/ranking algorithm. Rewrite if you did more on the core logic.
-        // NOTE: these tags name your employer's production stack — confirm before publishing.
-        tags: ['Azure AI Search', 'Neo4j', 'LlamaParse', 'Python', 'Kubernetes'],
-        href: '', // add a repo/demo link, or leave '' for a non-link card
-        external: true,
-      },
-      {
-        featured: false,
         title: 'LLM-Judge Bias & Reliability Research',
         description:
           'Investigated whether the LLM judges scoring the pipeline’s own outputs were biased toward answers from their own model family: reviewed the self-preference bias literature and designed a cross-model benchmarking protocol to test it. Extended that into a reliability study — repeated executions to quantify run-to-run variance in judge scores, and cross-judge comparisons to test whether conclusions hold up under a different evaluator.',
