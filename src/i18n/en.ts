@@ -57,6 +57,15 @@ export const en = {
       },
       {
         featured: false,
+        title: 'Rail Compliance Agent',
+        description:
+          'A tool-using LangGraph agent that checks a train design spec against the EU PRM TSI and returns a compliance report: a verdict per parameter, the requirement, and the exact passage it cites. The model chooses among tools, but code decides every verdict. Evaluated on tool use, citations and escalation to a human, with a CI gate. Not legal advice.',
+        tags: ['LangGraph', 'MCP', 'FastAPI', 'Docker', 'Agents', 'Evaluation'],
+        href: 'https://github.com/cardohso/rail-compliance-agent',
+        external: true,
+      },
+      {
+        featured: false,
         title: 'LLM-as-a-Judge Evaluation Pipeline',
         description:
           'Built a decomposed evaluation suite for a production RAG assistant: instead of one blended quality score, an LLM judge scores every answer on relevance, helpfulness, correctness, and hallucination, each grounded against the source document. Added retrieval-stage metrics (context precision, recall, relevance) so a bad answer can be traced to retrieval or generation, then wired the whole suite into CI with an LLM-driven layer that flags meaningful score drops between runs, not just raw diffs.',
